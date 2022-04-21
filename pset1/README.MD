@@ -1,4 +1,4 @@
-*  #  _ SUBDIRETÓRIOS _    
+*  #  _SUBDIRETÓRIOS_    
 
 >O QUE SÃO SUBDIRETÓRIOS??
 
