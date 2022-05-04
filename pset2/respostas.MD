@@ -10,5 +10,9 @@
 
 # Questões 3 :
 ## prepare um relatório que liste o nome dos departamentos e, para cada departamento, inclua as seguintes informações de seus funcionários: o nome completo, a data de nascimento, a idade em anos completos e o salário.
-### 
+### codigo que temos que mudar: 
+select datediff
+('data atual','data de nascimento')/365 as 'idade_João';
+select ceiling(idade calculada do João) as 'idade_arredondada_João';
+update funcionario set idade = 58 where primeiro_nome = 'João';
  
