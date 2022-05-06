@@ -16,3 +16,13 @@ select datediff
 select ceiling(idade calculada do João) as 'idade_arredondada_João';
 update funcionario set idade = 58 where primeiro_nome = 'João';
  
+questão 4: comando para exibir o salario primeiro nome nome meio que é maior ou igual a 35000:
+select salario, primeiro_nome, nome_meio from funcionario where salario >= 35000;
+
+comando para exibir o salario primeiro nome nome meio que é menor a 35000:
+select salario, primeiro_nome, nome_meio from funcionario where salario < 35000;
+
+agora multiplicando :
+select salario*0.2, primeiro_nome, nome_meio from funcionario where salario < 35000;
+
+select salario + salario*0.2 AS "salario reajustado", primeiro_nome, nome_meio from funcionario where salario < 35000;
