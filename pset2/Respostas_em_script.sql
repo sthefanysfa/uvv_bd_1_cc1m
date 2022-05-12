@@ -86,11 +86,13 @@ and funcionario.cpf = tb.cpf_funcionario group by projeto.nome_projeto, departam
 
 Questão 13:
 
-select concat(funcionario.primeiro_nome, " ", funcionario.nome_meio, " ", funcionario.ultimo_nome) as nome_completo_funcionario, 
-concat(dependente.nome_dependente, " ", funcionario.nome_meio, " ", funcionario.ultimo_nome) as nome_completo_dependente, funcionario.sexo as sexo_funcionario, 
-dependente.sexo as sexo_dependente, concat(funcionario.idade, " anos") as idade_funcionario, concat(year(curdate())-year(dependente.data_nascimento)," anos") 
-as idade_dependente from (funcionario, dependente) inner join dependente as d on (funcionario.cpf = d.cpf_funcionario) group by nome_completo_funcionario, 
-nome_completo_dependente, idade_funcionario, idade_dependente order by idade_funcionario desc, idade_dependente desc;
+select concat(f.primeiro_nome, " ", f.nome_meio, " ", f.ultimo_nome) as nome_completo_funcionario, 
+concat(d.nome_dependente, " ", f.nome_meio, " ", f.ultimo_nome) as nome_completo_dependente, 
+case f.sexo when f.sexo = "M" then "Masculino" when f.sexo = "F" then "Feminino" end as sexo_funcionario,   
+case d.sexo when d.sexo = "M" then "Masculino" when d.sexo = "F" then "Feminino" end as sexo_dependente, concat(f.idade, " anos") as idade_funcionario,  
+concat(year(curdate())-year(d.data_nascimento)," anos") as idade_dependente  from (funcionario AS f, dependente, departamento AS dp)  
+inner join dependente as d  on (f.cpf = d.cpf_funcionario AND dp.numero_departamento = f.numero_departamento)  
+group by nome_completo_funcionario, nome_completo_dependente, idade_funcionario, idade_dependente  order by idade_funcionario desc, idade_dependente desc;
 
 Questão 14:
 
